@@ -43,8 +43,6 @@ class UserLogin(Resource):
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
         data = UserRegister.parser.parse_args()
-        #connection = sqlite3.connect('users.db')
-        #cursor = connection.cursor()
         print(data['username'])
         if User.find_by_username(data['username']):
             return {'message': 'User logged in!'}
